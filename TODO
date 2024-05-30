@@ -1,0 +1,8 @@
+[x] Scaffold a basic project
+- Connect to weather data api
+- Implement to push notificaiton logic and get a pn on my device
+- Implement the backend logic for sending push notificaions
+- Connect to mongo
+- Launch to vercel
+- Connect it to some ai api 
+ 

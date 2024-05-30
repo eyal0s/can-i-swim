@@ -1,0 +1,107 @@
+.loading-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to top, #ffdfba 40%, #87ceeb 60%);
+  }
+  
+  .sky {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .sun {
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    font-size: 5vw;
+  }
+  
+  .beach {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 20vh;
+    background: #ffdfba;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+  
+  .crab-1 {
+    font-size: 5vw;
+    position: absolute;
+    bottom: 10%;
+    animation: dance-1 4s linear infinite;
+  }
+
+  .crab-2 {
+    font-size: 3vw;
+    position: absolute;
+    bottom: 15%;
+    left: 10%;
+    animation: dance-2 6s linear infinite;
+  }
+
+  .crab-3 {
+    font-size: 1vw;
+    position: absolute;
+    bottom: 50%;
+    right: 30%;
+    animation: dance-3 3s linear infinite;
+  }
+  
+  .water {
+    position: absolute;
+    bottom: 20vh;
+    width: 100%;
+    height: 40vh;
+    background: #87ceeb;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+  
+  .swimmer {
+    position: absolute;
+    right: -10%;
+    font-size: 4vw;
+    animation: swim 15s linear infinite;
+  }
+  
+  @keyframes swim {
+    0% { right: -10%; }
+    100% { right: 110%; }
+  }
+  
+  @keyframes dance-1 {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-10px) translateY(-10px); }
+    50% { transform: translateX(0) translateY(0); }
+    75% { transform: translateX(-20px) translateY(-10px); }
+    100% { transform: translateX(0); }
+  }
+
+  @keyframes dance-2 {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(5px) translateY(5px); }
+    50% { transform: translateX(0) translateY(0); }
+    75% { transform: translateX(-5px) translateY(5px); }
+    100% { transform: translateX(0); }
+  }
+
+  @keyframes dance-3 {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(10px) translateY(-10px); }
+    50% { transform: translateX(0) translateY(0); }
+    75% { transform: translateX(-10px) translateY(10px); }
+    100% { transform: translateX(0); }
+  }
