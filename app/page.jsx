@@ -1,7 +1,6 @@
 "use client";
 import React from 'react';
 import { useState } from 'react';
-import Layout from './components/Layout';
 import SearchBar from './components/SearchBar';
 
 export default function Home() {
@@ -12,7 +11,7 @@ export default function Home() {
   };
 
   return (
-    <Layout>
+    <div className='page-content-home'>
       <h1>Is it a Good Day to Swim?</h1>
       <SearchBar onSearch={handleSearch} />
       {beach && (
@@ -20,6 +19,6 @@ export default function Home() {
           <a href={`/beach/${beach}`}>Check the swim conditions for {beach}</a>
         </div>
       )}
-    </Layout>
+    </div>
   );
 }

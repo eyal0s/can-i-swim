@@ -1,10 +1,13 @@
-import Layout from "./components/Layout";
-import "./styles/loading.css";
+import "./styles/global.css";
+import "./styles/layout.css";
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <head></head>
+      <head>
+        <title>Swim App</title>
+        <link rel="icon" href="/favicon.ico" />
+      </head>
       <link rel="icon" href="/favicon.ico" />
       <body>
       <div className="loading-container">
@@ -16,8 +19,10 @@ export default function RootLayout({ children }) {
           <div className="crab-3">🦀</div>
         </div>
         <div className="water">
-        <Layout>{children}</Layout>
-          <div className="swimmer">🏊</div>
+          <div className="page-content"> 
+            {children}
+            </div>
+        <div className="swimmer">🏊</div>
         </div>
       </div>
     </div>
