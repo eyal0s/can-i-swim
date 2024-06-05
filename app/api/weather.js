@@ -24,32 +24,50 @@ export const getWeatherData = async (beach) => {
     marineResponse.json(),
     temperatureResponse.json(),
   ]);
-console.log("🚀 ~ getWeatherData ~ marineData:", marineData);
-console.log("🚀 ~ getWeatherData ~ temperatureData:", temperatureData);
+  console.log("🚀 ~ getWeatherData ~ marineData:", marineData);
+  console.log("🚀 ~ getWeatherData ~ temperatureData:", temperatureData);
 
-const now = new Date();
-const currentHour = now.getHours(); // Get the current hour
-const relevantDataMarineIndex = findIndex(marineData.hourly.time.map(data => (new Date(data)).getHours()), (time) => (time === currentHour))
-console.log("🚀 ~ getWeatherData ~ relevantDataMarineIndex:", relevantDataMarineIndex)
+  const now = new Date();
+  const currentHour = now.getHours(); // Get the current hour
+  const relevantDataMarineIndex = findIndex(
+    marineData.hourly.time.map((data) => new Date(data).getHours()),
+    (time) => time === currentHour
+  );
+  console.log(
+    "🚀 ~ getWeatherData ~ relevantDataMarineIndex:",
+    relevantDataMarineIndex
+  );
 
-if (relevantDataMarineIndex === -1) {
+  if (relevantDataMarineIndex === -1) {
     throw new Error("No relevant data found");
-}
+  }
 
-const waveHeight = marineData.hourly.wave_height[relevantDataMarineIndex];
-const waveSeparation = marineData.hourly.wave_period[relevantDataMarineIndex];
-const waveDirection = getAbsoluteDirection(marineData.hourly.wave_direction[relevantDataMarineIndex]);
+  const waveHeight = marineData.hourly.wave_height[relevantDataMarineIndex];
+  const waveSeparation = marineData.hourly.wave_period[relevantDataMarineIndex];
+  const waveDirection = getAbsoluteDirection(
+    marineData.hourly.wave_direction[relevantDataMarineIndex]
+  );
 
-function getAbsoluteDirection(degrees) {
-    const directions = ['⬆️ North', '↗️ North East', '➡️ East', '↘️ South East', '⬇️ South', '↙️ South West', '⬅️ West', '↖️ North West'];
+  function getAbsoluteDirection(degrees) {
+    const directions = [
+      "⬆️ North",
+      "↗️ North East",
+      "➡️ East",
+      "↘️ South East",
+      "⬇️ South",
+      "↙️ South West",
+      "⬅️ West",
+      "↖️ North West",
+    ];
     const index = Math.round(degrees / 45) % 8;
     return directions[index];
-}
-const temperature = temperatureData.hourly.temperature_2m[relevantDataMarineIndex];
-return {
+  }
+  const temperature =
+    temperatureData.hourly.temperature_2m[relevantDataMarineIndex];
+  return {
     waveHeight,
     waveSeparation,
     waveDirection,
     temperature,
-};
+  };
 };
